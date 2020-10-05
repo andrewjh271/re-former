@@ -1,0 +1,14 @@
+<%= form_with model: @user, local: true do |f| %>
+  <%= f.label :username, 'Username:' %>
+  <%= f.text_field :username %>
+  <br><br>
+  <%= f.label :email, 'Email:' %>
+  <%= f.text_field :email, value: @user.email || 'example@example.com' %>
+  <br><br>
+  <% unless @user.persisted? %>
+    <%= f.label :password, 'Password:' %>
+    <%= f.password_field :password %>
+  <% end %>
+  <br>
+  <%= f.submit 'Submit' %>
+<% end %>
